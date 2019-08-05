@@ -13,7 +13,7 @@ public class Door : MonoBehaviour
             Clean();
         if (DoorManager.instance.door == null)
         {
-            this.spriteRenderer.color = Color.green;
+            this.spriteRenderer.color = Color.red;
             DoorManager.instance.door = this;
             //Giris
         }
@@ -23,7 +23,7 @@ public class Door : MonoBehaviour
             {
                 previous = DoorManager.instance.door;
                 previous.next = this;
-                this.spriteRenderer.color = Color.red;
+                this.spriteRenderer.color = Color.green;
             }
             DoorManager.instance.door = null;
             //Çıkış
