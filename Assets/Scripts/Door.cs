@@ -4,50 +4,55 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
-    public Door previous, next;
-    public bool selected;
-    private void OnMouseDown()
-    {
-        if (selected)
-            Clean();
-        if (DoorManager.instance.door == null)
-        {
-            this.spriteRenderer.color = Color.red;
-            DoorManager.instance.door = this;
-            //Giris
-        }
-        else
-        {
-            if (DoorManager.instance.door != this)
-            {
-                previous = DoorManager.instance.door;
-                previous.next = this;
-                this.spriteRenderer.color = Color.green;
-            }
-            DoorManager.instance.door = null;
-            //Çıkış
-        }
-        selected = true;
-    }
+  public SpriteRenderer spriteRenderer;
 
-    private void Clean()
+  //gelinen ve gidilecek kapıları tutmak için kullandığımız değişkenler
+  public Door previous, next;
+
+  //Kapı daha önce seçilmiş mi diye kontrol etmek için kullanacağımız değişken
+  public bool selected;
+
+  //Kapının üstüne tıklayınca çalışacak fonksiyon
+  private void OnMouseDown()
+  {
+    //Kapı daha önce seçilmişse temizle fonksiyonunu çalıştırıyor.
+    if (selected)
+      Clean();
+
+    //Doormanager'da tuttuğumuz kapı boşsa veya tıklanan kapı tutulan kapıysa onu giriş kapısı yapmak için manager'da atıyoruz
+    if (DoorManager.instance.door == null || DoorManager.instance.door == this)
     {
-        if (previous != null)
-        {
-            print("previous");
-            previous.spriteRenderer.color = Color.white;
-            previous.Clean();
-        }
-        else if (next != null)
-        {
-            next.previous = null;
-            print("next");
-            next.spriteRenderer.color = Color.white;
-            next.Clean();
-            next = null;
-        }
-        print("son");
-        selected = false;
+      this.spriteRenderer.color = Color.green;
+      DoorManager.instance.door = this;
     }
+    //doormanager'da tuttuğumuz kapı doluysa bir giriş var demek. Yani şimdi tıklanan kapı çıkış kapısı olacak
+    else
+    {
+      //tıklanan kapının öncekine managerda tutulan kapı atılıyor.
+      previous = DoorManager.instance.door;
+      //tıklanan kapının öncekinin ilerisine managerda tutulan kapı atılıyor.
+      previous.next = this;
+      this.spriteRenderer.color = Color.red;
+      //managerda tuttuğumuz kapıyı boşaltıyoruz ki yeni kapıları seçebilelim
+      DoorManager.instance.door = null;
+    }
+    selected = true;
+  }
+
+  public void Clean()
+  {
+    if (previous != null)
+    {
+      previous.spriteRenderer.color = Color.white;
+      previous.Clean();
+    }
+    else if (next != null)
+    {
+      next.previous = null;
+      next.spriteRenderer.color = Color.white;
+      next.Clean();
+      next = null;
+    }
+    selected = false;
+  }
 }

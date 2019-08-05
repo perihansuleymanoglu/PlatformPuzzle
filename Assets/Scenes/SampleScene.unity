@@ -199,18 +199,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &425780784 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1170664451, guid: 29513a2db026e5844ae558f40f3cf3d9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1742148242}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aad2abde6eae1eb49bb206f963e31831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +293,6 @@ GameObject:
   - component: {fileID: 1076008488}
   - component: {fileID: 1076008487}
   - component: {fileID: 1076008489}
-  - component: {fileID: 1076008492}
   - component: {fileID: 1076008486}
   - component: {fileID: 1076008491}
   - component: {fileID: 1076008490}
@@ -371,7 +358,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 5bb3c6fe5235bbc48b3aabe8459ba99d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -431,7 +418,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1076008491
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -458,19 +445,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 2.01}
   m_EdgeRadius: 0
---- !u!114 &1076008492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076008485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff07d0d6921849f4ba0f2462febd0c9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 0}
 --- !u!1 &1204497053
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff07d0d6921849f4ba0f2462febd0c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 425780784}
+  door: {fileID: 0}
 --- !u!4 &1641091348
 Transform:
   m_ObjectHideFlags: 0
@@ -981,6 +955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2078388436}
   - component: {fileID: 2078388435}
+  - component: {fileID: 2078388437}
   m_Layer: 0
   m_Name: ground_stone
   m_TagString: Untagged
@@ -1050,3 +1025,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2078388437
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078388434}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.8, y: 0.94}
+    newSize: {x: 3.8, y: 0.94}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.8, y: 0.94}
+  m_EdgeRadius: 0

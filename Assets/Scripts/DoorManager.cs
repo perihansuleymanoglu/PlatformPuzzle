@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
-    public static DoorManager instance;
+  /*
+      Bir tane door nesnesi tutmamız gerekiyor.
+      Giriş kapısını elimizde tutup
+      Çıkış kapısına tıklayınca o kapının previous değişkenine atmak için
+  */
 
-    public Door door;
-    void Awake()
-    {
-        instance = this;
-    }
-    public void AddDoor(Door door)
-    {
-        this.door = door;
-    }
+  // Elimizde tutacağımız kapı nesnesine her yerden ulaşabilmek için instance oluşturduk.
+  public static DoorManager instance;
+  public Door door;
+
+  // Sahne açılırken kapıyı boşaltıp, instance boşsa oluşturulmasını sağladık.
+  void Awake()
+  {
+    if (instance == null)
+      instance = this;
+  }
 }
