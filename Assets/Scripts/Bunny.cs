@@ -11,6 +11,7 @@ public class Bunny : MonoBehaviour
 
   private void Update()
   {
+    print(Vector3.right);
     transform.position += Vector3.right * Time.deltaTime * speed * direction;
   }
   private void OnCollisionEnter2D(Collision2D other)
