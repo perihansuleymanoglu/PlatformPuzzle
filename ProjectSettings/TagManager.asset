@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Duvar
+  - Carrot
+  - Bitis
+  - gameover
+  - Engel
   layers:
   - Default
   - TransparentFX
