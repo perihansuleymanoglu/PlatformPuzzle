@@ -41,20 +41,45 @@ public class Door : MonoBehaviour
 
     public void Clean()
     {
+        //Önceki boş değilse içine giriyor
         if (previous != null)
         {
+            //Önceki kapının rengini beyaz yapıyor
             previous.DoorColorChange(Color.white);
+            //öncekinin Clean metodunu çağırıyor.
             previous.Clean();
+            
         }
+        //Sonraki boş değilse içine giriyor
         else if (next != null)
         {
+            //Sonrakinin öncesini null yapıyor
             next.previous = null;
+            //Sonraki kapının rengini beyaz yapıyor
             next.DoorColorChange(Color.white);
-            // next.Clean();
+            //next i boşaltıyor
             next = null;
         }
         selected = false;
     }
+
+/*
+Topluca açıklayayım satır satır beceremedim.
+
+Öncelikle ışınlanma olayı gerçekleşirken karakterin girdiği kapının next değişkeninin Clean metodu çağrılıyor. Yani gideceğimiz kapının.
+Ardından o Clean metodunun içinde önceki kapıyı tutan previous kapısının boş olup olmadığı kontrol ediliyor. Işınlanma anında boş olma durumu zaten yok.
+Ama farklı durumlarda boş olabilir.
+Previous burada geldiğimiz kapıyı belirtiyor. rengini beyaz yapıp o kapının Clean metodunu çağırıyoruz.
+
+Bu durumda geldiğimiz kapının tuttuğu bir previous değeri yok yani previous boş ama next dolu çünkü gittiğimiz kapıyı tutuyor.
+Yani else if'e giriyor.
+Burada gidilen kapının önceki kapısı yani portala girdiğimiz kapıyı tutan değişken boşaltılıyor.
+Ardından gittiğimiz kapının rengi beyaz yapılıyor.
+En son da geldiğimiz kapıda gittiğimiz kapıyı tutan next değişkeni boşaltılıyor.
+
+
+ */
+
     void DoorColorChange(Color c)
     {
         for (int i = 0; i < spriteRenderer.Length; i++)
